@@ -8,9 +8,9 @@ const CartDesktop = () => {
 	const { totalPrice, setTotalPrice, setHandleOrderPopup } = useContext(ResponsiveContext)
 
 	return (
-		<div className="">
-			<table className="hidden md:block table-auto w-fit  mx-auto">
-				<thead className="min-w-full">
+		<div className="w-full mt-20">
+			<table className="hidden md:block w-fit mx-auto">
+				<thead className="">
 					<tr>
 						<th className="px-4 py-2">Image</th>
 						<th className="px-4 py-2">Product</th>
@@ -19,17 +19,17 @@ const CartDesktop = () => {
 						<th className="px-4 py-2">Action</th>
 					</tr>
 				</thead>
-				<tbody className="w-full">
+				<tbody className="">
 					{cart.map((el, i) => (
 						<tr key={i}>
-							<td className="border px-4 py-2">
+							<td className="border px-4 py-2 w-[200px]">
 								<img
 									src={el.image}
-									alt=""
-									className="h-[50px] w-[50px] object-contain xl:h-[75px] xl:w-[75px]"
+									alt={el.title}
+									className="h-[50px] w-[50px] object-contain xl:h-[75px] xl:w-[75px] mx-auto"
 								/>
 							</td>
-							<td className="border px-4 py-2">{el.title}</td>
+							<td className="border px-4 py-2 w-[700px]">{el.title}</td>
 							<td className="border px-4 py-2 h-fit">
 								{/* increasing, decreasing quantity */}
 								<div className="quantity flex items-center justify-center">
@@ -45,7 +45,7 @@ const CartDesktop = () => {
 										}}>
 										-
 									</button>
-									<p className="px-2 w-10 flex justify-center">{el.quantity}</p>
+									<p className="px-2  flex justify-center md:w-[60px] lg:w-[100px]">{el.quantity}</p>
 									<button
 										className="bg-gray-200 px-2 py-1 rounded-md hover:bg-primary hover:text-white transition-colors duration-300 ease-in-out dark:text-black"
 										onClick={() => {
@@ -58,7 +58,7 @@ const CartDesktop = () => {
 								</div>
 							</td>
 							{/* Update subtotal price */}
-							<td className="border px-4 py-2">${(el.price * el.quantity).toFixed(2)}</td>
+							<td className="border px-4 py-2 w-[200px] text-center">${(el.price * el.quantity).toFixed(2)}</td>
 							{/* Remove button */}
 							<td className="border px-4 py-2">
 								<Button
@@ -76,7 +76,7 @@ const CartDesktop = () => {
 				</tbody>
 			</table>
 			{/* total */}
-			<div className="hidden md:flex justify-between items-start my-5">
+			<div className="hidden md:flex justify-between items-start my-5 mt-10">
 				<p className="text-xl font-semibold">Total</p>
 				<div className="flex flex-col justify-end items-end gap-5">
 					<p className="text-xl font-bold">${totalPrice.toFixed(2)}</p>
