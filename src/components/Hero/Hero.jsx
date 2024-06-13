@@ -43,7 +43,7 @@ const Hero = () => {
 		pauseOnFocus: true,
 	}
 	return (
-		<div className="container">
+		<div className="container mt-20">
 			<div
 				className="overflow-hidden rounded-3xl min-h-[550px] sm:min-h-[650px] hero-bg-color flex justify-center items-center
 ">
